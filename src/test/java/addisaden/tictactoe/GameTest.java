@@ -34,7 +34,7 @@ public class GameTest
 
             g.move(i);
 
-            assertEqual(1, g.get(i));
+            assertEquals(1, g.get(i));
         }
 
         // o Moves

@@ -34,12 +34,11 @@ class Game
     current_move++;
   }
 
-  public int get(int position) throws IndexOutOfBoundsException, IllegalArgumentException
+  public int get(int position) throws IndexOutOfBoundsException
   {
     is_valid_position(position);
-    is_empty_position(position);
 
-    return spielfeld[position]
+    return spielfeld[position];
   }
 
   /**
