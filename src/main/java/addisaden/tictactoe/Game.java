@@ -30,11 +30,17 @@ class Game
 
     for(int i = 0; i < spielfeld.length; i++)
     {
-      tmp = new Integer(spielfeld[i]);
-      result += tmp.toString();
+      switch(spielfeld[i]) {
+        case 0: result += " ";
+                break;
+        case 1: result += "X";
+                break;
+        case 2: result += "O";
+                break;
+      }
 
       if(i % 3 != 2)
-        result += " ";
+        result += " | ";
       else if(i < spielfeld.length - 1)
         result += "\n";
     }

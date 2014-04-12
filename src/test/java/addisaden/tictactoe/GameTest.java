@@ -38,6 +38,10 @@ public class GameTest
     @Test
     public void testGameStringGamefield()
     {
-        assertEquals("0 0 0\n0 0 0\n0 0 0", game.toString());
+        assertEquals("  |   |  \n  |   |  \n  |   |  ", game.toString());
+        game.move(0);
+        assertEquals("X |   |  \n  |   |  \n  |   |  ", game.toString());
+        game.move(8);
+        assertEquals("X |   |  \n  |   |  \n  |   | O", game.toString());
     }
 }
