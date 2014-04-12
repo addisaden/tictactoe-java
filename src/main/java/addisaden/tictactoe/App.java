@@ -8,6 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Game the_game = new Game();
+
+        the_game.print_spielfeld();
     }
 }
