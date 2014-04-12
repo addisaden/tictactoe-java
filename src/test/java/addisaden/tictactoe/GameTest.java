@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class GameTest 
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public GameTest( String testName )
     {
         super( testName );
     }
@@ -25,14 +25,21 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( GameTest.class );
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    public void testGameMove()
     {
-        assertTrue( true );
+        Game g = new Game();
+        try {
+            g.move(0);
+            g.move(0);
+            assert(false);
+        } catch (Exception e) {
+            assert(true);
+        }
     }
 }
