@@ -23,6 +23,24 @@ public class GameTest
     }
 
     /**
+     * Teste ob man auf jedes Feld ziehen kann
+     */
+    @Test
+    public void testGameMoveToEveryPosition() throws Exception
+    {
+        // x Moves
+        for(int i = 0; i < 9; i++) {
+            Game g = new Game();
+
+            g.move(i);
+
+            assertEqual(1, g.get(i));
+        }
+
+        // o Moves
+    }
+
+    /**
      * Setze auf belegtes Feld
      */
     @Test(expected = IllegalArgumentException.class)

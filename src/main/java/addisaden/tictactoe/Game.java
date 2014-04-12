@@ -34,6 +34,14 @@ class Game
     current_move++;
   }
 
+  public int get(int position) throws IndexOutOfBoundsException, IllegalArgumentException
+  {
+    is_valid_position(position);
+    is_empty_position(position);
+
+    return spielfeld[position]
+  }
+
   /**
    * String-Repräsentation des Spielfeldes
    */
