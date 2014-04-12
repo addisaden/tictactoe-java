@@ -4,8 +4,16 @@ class Game
 {
   private int[] spielfeld = new int[9];
 
+  /**
+   * Zählt die Züge
+   *
+   * Wenn gerade, dann ist X am Zug. Ansonsten O.
+   */
   private int current_move = 0;
 
+  /**
+   * Konstruktor initialisiert Spielfeld
+   */
   Game()
   {
     for(int i = 0; i < spielfeld.length; i++)
@@ -14,6 +22,9 @@ class Game
     }
   }
 
+  /**
+   * Ziehe auf das Feld angegebene Feld
+   */
   public void move(int position) throws IndexOutOfBoundsException, IllegalArgumentException
   {
     is_valid_position(position);
@@ -23,6 +34,9 @@ class Game
     current_move++;
   }
 
+  /**
+   * String-Repräsentation des Spielfeldes
+   */
   public String toString()
   {
     String result = "";
@@ -48,12 +62,18 @@ class Game
     return result;
   }
 
+  /**
+   * Überprüft ob ein Feld existiert
+   */
   private void is_valid_position(int position) throws IndexOutOfBoundsException
   {
     if(position < 0 || position >= spielfeld.length)
       throw new IndexOutOfBoundsException("Position nicht vorhanden");
   }
 
+  /**
+   * Überprüft ob ein Feld schon belegt ist
+   */
   private void is_empty_position(int position) throws IllegalArgumentException
   {
     if(spielfeld[position] != 0)

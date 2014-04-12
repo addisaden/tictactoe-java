@@ -22,6 +22,9 @@ public class GameTest
         game = new Game();
     }
 
+    /**
+     * Setze auf belegtes Feld
+     */
     @Test(expected = IllegalArgumentException.class)
     public void testGameInvalidMove() throws IllegalArgumentException
     {
@@ -29,12 +32,18 @@ public class GameTest
         game.move(0);
     }
 
+    /**
+     * Setze auf ungültiges Feld
+     */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGameInvalidPositionOnMove() throws IndexOutOfBoundsException
     {
         game.move(-1);
     }
 
+    /**
+     * Ausgabe des TicTacToes
+     */
     @Test
     public void testGameStringGamefield()
     {
