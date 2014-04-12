@@ -14,6 +14,6 @@ public class App
         the_game.move(1);
         the_game.move(2);
 
-        the_game.print_spielfeld();
+        System.out.println(the_game);
     }
 }

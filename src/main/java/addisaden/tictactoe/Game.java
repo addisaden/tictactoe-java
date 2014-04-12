@@ -23,16 +23,23 @@ class Game
     current_move++;
   }
 
-  public void print_spielfeld()
+  public String toString()
   {
+    String result = "";
+    Integer tmp = null;
+
     for(int i = 0; i < spielfeld.length; i++)
     {
-      System.out.print(spielfeld[i]);
-      System.out.print(" ");
+      tmp = new Integer(spielfeld[i]);
+      result += tmp.toString();
 
-      if(i % 3 == 2)
-        System.out.println();
+      if(i % 3 != 2)
+        result += " ";
+      else if(i < spielfeld.length - 1)
+        result += "\n";
     }
+
+    return result;
   }
 
   private void is_valid_position(int position) throws IndexOutOfBoundsException

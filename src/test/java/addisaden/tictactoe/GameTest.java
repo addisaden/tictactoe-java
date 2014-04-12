@@ -2,6 +2,7 @@ package addisaden.tictactoe;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -32,5 +33,11 @@ public class GameTest
     public void testGameInvalidPositionOnMove() throws IndexOutOfBoundsException
     {
         game.move(-1);
+    }
+
+    @Test
+    public void testGameStringGamefield()
+    {
+        assertEquals("0 0 0\n0 0 0\n0 0 0", game.toString());
     }
 }
