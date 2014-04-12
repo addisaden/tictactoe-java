@@ -14,7 +14,7 @@ class Game
     }
   }
 
-  public void move(int position) throws Exception
+  public void move(int position) throws IndexOutOfBoundsException, IllegalArgumentException
   {
     is_valid_position(position);
     is_empty_position(position);
@@ -35,22 +35,15 @@ class Game
     }
   }
 
-  private void is_valid_position(int position) throws Exception
+  private void is_valid_position(int position) throws IndexOutOfBoundsException
   {
-    require(
-      position >= 0 || position < spielfeld.length,
-      "Position nicht vorhanden"
-    );
+    if(position < 0 || position >= spielfeld.length)
+      throw new IndexOutOfBoundsException("Position nicht vorhanden");
   }
 
-  private void is_empty_position(int position) throws Exception
+  private void is_empty_position(int position) throws IllegalArgumentException
   {
-    require(spielfeld[position] == 0, "Position ist nicht leer");
-  }
-
-  private void require (boolean condition, String message) throws Exception
-  {
-    if(!condition)
-      throw new Exception(message);
+    if(spielfeld[position] != 0)
+      throw new IllegalArgumentException("Position ist nicht leer");
   }
 }

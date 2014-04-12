@@ -1,45 +1,36 @@
 package addisaden.tictactoe;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class GameTest 
-    extends TestCase
+public class GameTest
 {
     /**
-     * Create the test case
-     *
-     * @param testName name of the test case
+     * Variable fuer das Testobjekt.
      */
-    public GameTest( String testName )
-    {
-        super( testName );
-    }
+    protected Game game;
 
     /**
-     * @return the suite of tests being tested
+     * Vorbereitungsarbeiten.
      */
-    public static Test suite()
-    {
-        return new TestSuite( GameTest.class );
+    @Before
+    public void setUp() {
+        game = new Game();
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testGameMove()
+    @Test(expected = IllegalArgumentException.class)
+    public void testGameInvalidMove() throws IllegalArgumentException
     {
-        Game g = new Game();
-        try {
-            g.move(0);
-            g.move(0);
-            assert(false);
-        } catch (Exception e) {
-            assert(true);
-        }
+        game.move(0);
+        game.move(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGameInvalidPositionOnMove() throws IndexOutOfBoundsException
+    {
+        game.move(-1);
     }
 }
