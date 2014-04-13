@@ -28,6 +28,11 @@ public class GameTest
     @Test
     public void testGameMoveToEveryPosition() throws Exception
     {
+        // no moves
+        for(int i = 0; i < 9; i++) {
+            assertEquals(0, game.get(i));
+        }
+
         // x Moves
         for(int i = 0; i < 9; i++) {
             Game g = new Game();
@@ -38,6 +43,18 @@ public class GameTest
         }
 
         // o Moves
+        for(int i = 0; i < 9; i++) {
+            Game g = new Game();
+
+            if(i == 0)
+                g.move(1);
+            else
+                g.move(0);
+
+            g.move(i);
+
+            assertEquals(2, g.get(i));
+        }
     }
 
     /**
