@@ -41,6 +41,11 @@ class Game
     return spielfeld[position];
   }
 
+  public int winner()
+  {
+    return 0;
+  }
+
   /**
    * String-Repräsentation des Spielfeldes
    */
