@@ -43,6 +43,27 @@ class Game
 
   public int winner()
   {
+    int[][] winner_positions = {
+      {0, 1, 2},
+      {3, 4, 5},
+      {6, 7, 8},
+      {0, 3, 6},
+      {1, 4, 7},
+      {2, 5, 8},
+      {0, 4, 8},
+      {2, 4, 6}
+    };
+
+    for(int i = 0; i < winner_positions.length; i++) {
+      int a = spielfeld[winner_positions[i][0]];
+      int b = spielfeld[winner_positions[i][1]];
+      int c = spielfeld[winner_positions[i][2]];
+
+      if(a > 0 && a == b && a == c) {
+        return a;
+      }
+    }
+
     return 0;
   }
 

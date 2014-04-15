@@ -106,23 +106,22 @@ public class GameTest
 
             Game x_game = new Game();
 
-            for(i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
             {
                 assertEquals(0, x_game.winner());
 
-                x_game.move(wp[i]);
+                x_game.move(wp[j]);
 
-                if(i >= 2)
+                if(j >= 2)
                     break;
 
-                for(int j = 0; j < loosermoves.length; j++) {
-                    if(x_game.get(loosermoves[j]) != 0)
-                        continue;
-
-                    if( loosermoves[j] != wp[0] &&
-                        loosermoves[j] != wp[1] &&
-                        loosermoves[j] != wp[2]) {
-                        x_game.move(loosermoves[j]);
+                for(int k = 0; k < loosermoves.length; k++) {
+                    if( loosermoves[k] != wp[0] &&
+                        loosermoves[k] != wp[1] &&
+                        loosermoves[k] != wp[2] &&
+                        x_game.get(loosermoves[k]) == 0)
+                    {
+                        x_game.move(loosermoves[k]);
                         break;
                     }
                 }
@@ -133,23 +132,22 @@ public class GameTest
 
             Game o_game = new Game();
 
-            for(i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
             {
                 assertEquals(0, o_game.winner());
 
-                for(int j = 0; j < loosermoves.length; j++) {
-                    if(o_game.get(loosermoves[j]) != 0)
-                        continue;
-
-                    if( loosermoves[j] != wp[0] &&
-                        loosermoves[j] != wp[1] &&
-                        loosermoves[j] != wp[2]) {
-                        o_game.move(loosermoves[j]);
+                for(int k = 0; k < loosermoves.length; k++) {
+                    if( loosermoves[k] != wp[0] &&
+                        loosermoves[k] != wp[1] &&
+                        loosermoves[k] != wp[2] &&
+                        o_game.get(loosermoves[k]) == 0)
+                    {
+                        o_game.move(loosermoves[k]);
                         break;
                     }
                 }
 
-                o_game.move(wp[i]);
+                o_game.move(wp[j]);
             }
 
             assertEquals(2, o_game.winner());
