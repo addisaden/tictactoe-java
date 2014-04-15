@@ -155,6 +155,36 @@ public class GameTest
     }
 
     /**
+     * Game gibt an ob ein Test zuende ist
+     */
+    @Test
+    public void testGameEnds()
+    {
+        Game empty_game = new Game();
+        assertEquals(false, empty_game.end());
+
+        int[][] endgames = {
+            {0, 4, 1, 3, 2},
+            {0, 3, 1, 4, 6, 5},
+            {0, 1, 2, 4, 3, 5, 7, 6, 8}
+        };
+
+        for(int endgame = 0; endgame < endgames.length; endgame++)
+        {
+            Game the_endgame = new Game();
+            int[] endgame_moves = endgames[endgame];
+
+            // Set moves
+            for(int endgame_move = 0; endgame_move < endgame_moves.length; endgame_move++)
+            {
+                the_endgame.move(endgame_moves[endgame_move]);
+            }
+
+            assertEquals(true, the_endgame.end());
+        }
+    }
+
+    /**
      * Ausgabe des TicTacToes
      */
     @Test

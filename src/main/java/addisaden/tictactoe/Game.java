@@ -67,6 +67,11 @@ class Game
     return 0;
   }
 
+  public boolean end()
+  {
+    return false;
+  }
+
   /**
    * String-Repräsentation des Spielfeldes
    */
