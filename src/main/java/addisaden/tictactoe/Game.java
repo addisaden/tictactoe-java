@@ -25,10 +25,14 @@ class Game
   /**
    * Ziehe auf das Feld angegebene Feld
    */
-  public void move(int position) throws IndexOutOfBoundsException, IllegalArgumentException
+  public void move(int position)
+  throws IndexOutOfBoundsException,
+  			 IllegalArgumentException,
+  			 IllegalStateException
   {
     is_valid_position(position);
     is_empty_position(position);
+    is_game_ended();
 
     spielfeld[position] = (current_move % 2) + 1;
     current_move++;
@@ -130,5 +134,11 @@ class Game
   {
     if(spielfeld[position] != 0)
       throw new IllegalArgumentException("Position ist nicht leer");
+  }
+
+  private void is_game_ended() throws IllegalStateException
+  {
+  	if(end())
+  		throw new IllegalStateException("Spiel ist zuende");
   }
 }

@@ -188,6 +188,18 @@ public class GameTest
     }
 
     /**
+     * Shouldnt move on an end game
+     */
+    @Test(expected = IllegalStateException.class)
+    public void testIllegalMoveOnEndedGame()
+    {
+        int[] illegal_game = {0, 3, 1, 4, 2, 5};
+
+        for(int i = 0; i < illegal_game.length; i++)
+            game.move(illegal_game[i]);
+    }
+
+    /**
      * Ausgabe des TicTacToes
      */
     @Test
