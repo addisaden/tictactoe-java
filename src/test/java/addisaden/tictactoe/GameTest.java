@@ -156,6 +156,9 @@ public class GameTest
 
     /**
      * Game gibt an ob ein Test zuende ist
+     *
+     * Ein Spiel sollte zuende sein, wenn jemand gewonnen hat
+     * oder alle Felder belegt sind.
      */
     @Test
     public void testGameEnds()

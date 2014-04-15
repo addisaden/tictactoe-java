@@ -69,7 +69,21 @@ class Game
 
   public boolean end()
   {
-    return false;
+    if(winner() > 0)
+      return true;
+
+    boolean result = true;
+
+    for(int i = 0; i < spielfeld.length; i++)
+    {
+      if(spielfeld[i] == 0)
+      {
+        result = false;
+        break;
+      }
+    }
+
+    return result;
   }
 
   /**
